@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Registration Form</title>
+    <link rel="stylesheet" href="./static/css/styles.css">
+        
+</head>
+<body>
+
+    <div class="registration-form">
+        <h2>Registration Form</h2>
+        <!-- Your registration form here -->
+        <form action="{{ url_for('register') }}" method="POST">
+            <!-- Username -->
+            <div class="form-group">
+                <label for="username">Username:<span style="color: red;">*</span></label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">Phone Number:<span style="color: red;">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" pattern="[0-9]{10}">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:<span style="color: red;">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <!-- Occupation -->
+            <div class="form-group">
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation" placeholder="Enter your occupation">
+            </div>
+
+            <!-- State -->
+            <div class="form-group">
+                <label for="state">State:<span style="color: red;">*</span></label>
+                <select id="state" name="state" required>
+                    <option value="" disabled selected>Select your state</option>
+                </select>
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+                <label for="city">City:<span style="color: red;">*</span></label>
+                <select id="city" name="city" required>
+                    <option value="" disabled selected>Select your city</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">Register</button>
+        </form>
+    </div>
+
+    <script src="./static/js/scripts.js"></script>
+</body>
+</html>

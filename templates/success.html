@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+</head>
+<body>
+    <h2>Registration Successful!</h2>
+    <p>Your user ID: {{ user_id }}</p>
+    <p>Scan the QR code below to retrieve your information:</p>
+    <img src="{{ url_for('static', filename='QR_code/qr_' ~ user_id ~ '.png') }}" alt="QR Code">
+    <br><br>
+    <a href="{{ url_for('search') }}">Go to Search Page</a>
+</body>
+</html>
