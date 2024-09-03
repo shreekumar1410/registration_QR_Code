@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <style>
+        .content{
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        img {
+            width: 200px;
+            height: auto;
+        }
+
+        .content p{
+            font-size: larger;
+            font-weight: bolder;
+            margin-top: -15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img src="{{ url_for('static', filename='QR_code/qr_' ~ user_id ~ '.png') }}" alt="QR Code">
+        <p>ID: {{ user_id }}</p>
+    </div>  
+</body>
+</html>

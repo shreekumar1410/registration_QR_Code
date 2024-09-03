@@ -15,16 +15,17 @@ db_config = {
 # Home page route
 @app.route('/')
 def home():
-    return render_template('index.html')  # Home page with buttons
+    return render_template('index.html')
 
 # Registration page route
 @app.route('/register')
 def register():
-    return render_template('register.html')  # Registration form HTML file
+    return render_template('register.html')
 
 # Registration form submission route
 @app.route('/submit', methods=['POST'])
 def submit():
+    # Extract form data
     username = request.form['username']
     phone = request.form['phone']
     email = request.form['email']
@@ -41,7 +42,7 @@ def submit():
         INSERT INTO users (username, phone, email, occupation, state, city)
         VALUES (%s, %s, %s, %s, %s, %s)
     ''', (username, phone, email, occupation, state, city))
-    user_id = cursor.lastrowid  # Get the ID of the last inserted row
+    user_id = cursor.lastrowid
     conn.commit()
     cursor.close()
     conn.close()
@@ -70,23 +71,57 @@ def success(user_id):
 # Search page route
 @app.route('/search', methods=['GET', 'POST'])
 def search():
+    user_data = None  # Initialize user_data as None
+    
     if request.method == 'POST':
         user_id = request.form['user_id']
+        if user_id:  # Ensure user_id is not empty
+            # Retrieve user data from the MySQL database
+            conn = mysql.connector.connect(**db_config)
+            cursor = conn.cursor()
+            cursor.execute('SELECT * FROM users WHERE id = %s', (user_id,))
+            user_data = cursor.fetchone()
+            cursor.close()
+            conn.close()
+    
+    return render_template('search.html', user_data=user_data)
 
-        # Retrieve user data from the MySQL database
-        conn = mysql.connector.connect(**db_config)
-        cursor = conn.cursor()
-        cursor.execute('SELECT * FROM users WHERE id = %s', (user_id,))
-        user_data = cursor.fetchone()
+# Edit page route
+@app.route('/edit/<int:user_id>', methods=['GET', 'POST'])
+def edit(user_id):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        # Update the user data in the database
+        username = request.form['username']
+        phone = request.form['phone']
+        email = request.form['email']
+        occupation = request.form['occupation']
+        state = request.form['state']
+        city = request.form['city']
+
+        cursor.execute('''
+            UPDATE users SET username=%s, phone=%s, email=%s, occupation=%s, state=%s, city=%s WHERE id=%s
+        ''', (username, phone, email, occupation, state, city, user_id))
+        conn.commit()
         cursor.close()
         conn.close()
 
-        if user_data:
-            return render_template('user_info.html', user_data=user_data)
-        else:
-            return 'User not found', 404
+        return redirect(url_for('search'))
 
-    return render_template('search.html')
+    # Retrieve the existing user data
+    cursor.execute('SELECT * FROM users WHERE id = %s', (user_id,))
+    user_data = cursor.fetchone()
+    cursor.close()
+    conn.close()
+
+    return render_template('edit.html', user_data=user_data)
+
+# Print QR code page route
+@app.route('/print_qr/<int:user_id>')
+def print_qr(user_id):
+    return render_template('print_qr.html', user_id=user_id)
 
 if __name__ == '__main__':
     app.run(debug=True)
