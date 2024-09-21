@@ -1,3 +1,5 @@
+
+```md
 # Registration Form with QR Code Generation
 
 This project is a registration form that stores user data locally and generates a QR code corresponding to the row number where the user’s information is stored. After registration, the QR code can be scanned to retrieve and display user information.
@@ -22,21 +24,29 @@ This project is a registration form that stores user data locally and generates 
 - Install [Node.js](https://nodejs.org/) for backend functionality.
 - Clone the repository:
 
+```bash
 git clone https://github.com/shreekumar1410/registration_QR_Code.git
+```
 
 ### Installation
 
 1. Navigate to the project folder:
 
+```bash
 cd registration_QR_Code
+```
 
 2. Install necessary dependencies (if applicable):
 
+```bash
 npm install
+```
 
 3. Start the application:
 
+```bash
 npm start
+```
 
 4. Open the application in your browser at `http://localhost:3000`.
 
@@ -50,29 +60,20 @@ npm start
 
 ## Folder Structure
 
+```
 /public
-
 /src
-
   /components
-	
     RegistrationForm.js
-		
     SearchPage.js
-		
     EditForm.js
-		
   /assets
-	
     images
-		
     icons
-		
   App.js
-	
   index.js
-	
   styles.css
+```
 
 ## Contributing
 
@@ -90,7 +91,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or issues, contact me at:
 
-- **Email**: shreekumarmb@gmail.com
-- **GitHub**: [shreekumar1410](https://github.com/shreekumar1410)
+- **Email**: your-email@example.com
+- **GitHub**: [your-github-username](https://github.com/your-github-username)
+```
 
 You can update this template based on any additional features or changes you made in the project.
