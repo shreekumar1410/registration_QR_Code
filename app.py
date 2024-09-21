@@ -47,14 +47,15 @@ def submit():
     cursor.close()
     conn.close()
 
-    # Generate QR code for the user ID
+    # Generate QR code with the URL for the print page
+    print_url = url_for('print_qr', user_id=user_id, _external=True)
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=10,
         border=4,
     )
-    qr.add_data(user_id)
+    qr.add_data(print_url)
     qr.make(fit=True)
     img = qr.make_image(fill='black', back_color='white')
     img_filename = f'static/QR_code/qr_{user_id}.png'
@@ -73,7 +74,7 @@ def success(user_id):
 def search():
     user_data = None  # Initialize user_data as None
     
-    if request.method == 'POST':
+    if request.method == 'POST':  # Only perform search on POST request
         user_id = request.form['user_id']
         if user_id:  # Ensure user_id is not empty
             # Retrieve user data from the MySQL database
@@ -85,6 +86,7 @@ def search():
             conn.close()
     
     return render_template('search.html', user_data=user_data)
+
 
 # Edit page route
 @app.route('/edit/<int:user_id>', methods=['GET', 'POST'])
