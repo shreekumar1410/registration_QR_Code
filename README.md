@@ -51,16 +51,27 @@ npm start
 ## Folder Structure
 
 /public
+
 /src
+
   /components
+	
     RegistrationForm.js
+		
     SearchPage.js
+		
     EditForm.js
+		
   /assets
+	
     images
+		
     icons
+		
   App.js
+	
   index.js
+	
   styles.css
 
 ## Contributing
