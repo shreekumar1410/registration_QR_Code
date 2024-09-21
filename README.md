@@ -1,5 +1,4 @@
 
-```md
 # Registration Form with QR Code Generation
 
 This project is a registration form that stores user data locally and generates a QR code corresponding to the row number where the user’s information is stored. After registration, the QR code can be scanned to retrieve and display user information.
