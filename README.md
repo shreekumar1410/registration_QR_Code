@@ -90,7 +90,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or issues, contact me at:
 
-- **Email**: shreekumar@example.com
+- **Email**: shreekumarmb@gmail.com
 - **GitHub**: [shreekumar1410](https://github.com/shreekumar1410)
 ```
 
