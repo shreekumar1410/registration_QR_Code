@@ -1,48 +1,85 @@
-# registration_QR_CodeRegistration QR Code Project
-This project is a web-based application that allows users to register and generate a unique QR code associated with their user ID. The application is built using Flask, a Python web framework, and utilizes a MySQL database to store user information.
+# Registration Form with QR Code Generation
 
-Features
-User registration with username, phone number, email, occupation, state, and city
-Generation of a unique QR code for each registered user
-Search functionality to retrieve user information by user ID
-Edit functionality to update user information
-Print functionality to display the QR code and user ID
-Getting Started
-Prerequisites
-Python 3.x
-Flask
-MySQL
-qrcode library
-Installation
-Clone the repository: git clone https://github.com/your-username/registration-qr-code.git
-Install the required dependencies: pip install -r requirements.txt
-Create a MySQL database and update the db_config dictionary in app.py with your database credentials
-Run the application: python app.py
-Usage
-Open a web browser and navigate to http://localhost:5000
-Click on the "Register" button to create a new user account
-Fill in the registration form and submit to generate a QR code
-Use the search functionality to retrieve user information by user ID
-Click on the "Edit" button to update user information
-Click on the "Print" button to display the QR code and user ID
-Directory Structure
-app.py: The main application file
-templates: Directory containing HTML templates for the application
-index.html: The main landing page
-register.html: The registration form page
-search.html: The search results page
-edit.html: The edit user information page
-print_qr.html: The print QR code page
-static: Directory containing static assets for the application
-css: Directory containing CSS stylesheets
-index.css: Styles for the main landing page
-search.css: Styles for the search results page
-styles.css: General styles for the application
-js: Directory containing JavaScript files
-scripts.js: JavaScript code for the application
-README.md: This file
-License
-This project is licensed under the MIT License. See LICENSE for details.
+This project is a registration form that stores user data locally and generates a QR code corresponding to the row number where the user’s information is stored. After registration, the QR code can be scanned to retrieve and display user information.
 
-Contributing
-Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
+## Features
+
+- **User Registration**: Stores user data (name, email, etc.).
+- **QR Code Generation**: Generates a unique QR code based on the user's data row in the database.
+- **Data Retrieval**: Users can scan their QR code to view their stored information.
+- **Edit and Print**: Users can edit their information and print the QR code and user ID.
+
+## Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js (or local storage, depending on the implementation)
+- **QR Code Generation**: QR Code generation library (e.g., `qrcode.js`)
+
+## Getting Started
+
+### Prerequisites
+
+- Install [Node.js](https://nodejs.org/) for backend functionality.
+- Clone the repository:
+
+git clone https://github.com/shreekumar1410/registration_QR_Code.git
+
+### Installation
+
+1. Navigate to the project folder:
+
+cd registration_QR_Code
+
+2. Install necessary dependencies (if applicable):
+
+npm install
+
+3. Start the application:
+
+npm start
+
+4. Open the application in your browser at `http://localhost:3000`.
+
+## Usage
+
+1. Fill in the registration form with required details.
+2. Submit the form to store user data.
+3. A QR code will be generated based on the row number where the user data is stored.
+4. Scan the QR code on the search page to retrieve the user’s information.
+5. Use the edit option to modify user information or print the QR code for reference.
+
+## Folder Structure
+
+/public
+/src
+  /components
+    RegistrationForm.js
+    SearchPage.js
+    EditForm.js
+  /assets
+    images
+    icons
+  App.js
+  index.js
+  styles.css
+
+## Contributing
+
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or issues, contact me at:
+
+- **Email**: shreekumarmb@gmail.com
+- **GitHub**: [shreekumar1410](https://github.com/shreekumar1410)
+
+You can update this template based on any additional features or changes you made in the project.
