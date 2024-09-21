@@ -90,8 +90,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or issues, contact me at:
 
-- **Email**: your-email@example.com
-- **GitHub**: [your-github-username](https://github.com/your-github-username)
+- **Email**: shreekumar@example.com
+- **GitHub**: [shreekumar1410](https://github.com/shreekumar1410)
 ```
 
 You can update this template based on any additional features or changes you made in the project.
